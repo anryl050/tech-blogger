@@ -1,0 +1,41 @@
+<section id="" class="place-content-center pt-40 pb-40">
+  <a href="/"></a>
+  <section class=" flex flex-col flex-wrap justify-center py-20 gap-5 ">
+
+    {{> post-info post }}
+
+
+    <div class="max-w-lg mx-auto px-4">
+      <div class="flex justify-between items-center mb-6">
+        <h2 class="text-lg lg:text-2xl font-bold text-gray-900">Discussion</h2>
+      </div>
+    </div>
+
+       <section class=" flex flex-col flex-wrap justify-center py-5 gap-5 ">
+        <div class="flex flex-col flex-wrap justify-center container mx-auto bg-white px-4 mx-5xl py-5 gap-5 max-w-xlg gap-x-20 ">
+{{#if loggedIn}}
+
+        <form class="mb-6 comment-form">
+        <div class="py-2 px-4 mb-4 bg-white rounded-lg rounded-t-lg border border-gray-200">
+        <label for="comment" class="sr-only">Your comment</label>
+        <textarea name="comment-text" rows="6"
+          class="px-0 w-full text-sm text-gray-900 border-0 focus:ring-0 focus:outline-none"
+          placeholder="Write a comment..." required></textarea>
+        </div>
+        <button type="button"
+        class="inline-flex items-center py-2.5 px-4 text-sm font-medium text-center text-white bg-blue-500 rounded-lg focus:ring-4 focus:ring-primary-200 hover:bg-primary-800 comment-btn">
+        Post comment
+        </button>
+        </form>
+ {{/if}}
+
+{{> comments post.comments}}
+        </div>
+      </section>
+
+  </section>
+</section>
+
+{{#if loggedIn}}
+<script src="./createComment.js"></script>
+{{/if}}

@@ -1,0 +1,33 @@
+<header>
+  <nav>
+    <div class="nav-row">
+      <h1 class="title">
+        <a href="/dashboard">Your Dashboard</a>
+      </h1>
+    </div>
+  </nav>
+</header>
+<div class="post-list-container">
+  <div class="list-title text-light-green">Edit Post</div>
+  <form class="edit-post-form">
+    <div>
+      <label for="post-title">Title</label>
+      <input class="input edit-post" name="post-title" type="text" value="{{post.title}}" />
+    </div>
+    <div>
+      <label for="post-content">Content</label>
+      <input class="textarea edit-post" name="post-content" type="text" value="{{post.post_text}}" />
+    </div>
+
+
+    <div class="rows">
+      <button type="submit" class="btn btn-update-delete">Update Post</button>
+      <button type="button" class="btn btn-update-delete delete-post-btn">Delete</button>
+
+
+  </form>
+</div>
+
+<script src="/javascript/edit-post.js"></script>
+<script src="/javascript/delete-post.js"></script>
+<script src="/javascript/comment.js"></script>

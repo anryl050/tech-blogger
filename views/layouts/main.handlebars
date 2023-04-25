@@ -2,27 +2,81 @@
 <html lang="en">
 
 <head>
-  <meta charset="utf-8">
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tech Blog</title>
-  <link rel="stylesheet" type="text/css" href="/css/style.css">
+  <title>Tech Blogger</title>
+  <!-- Link to tailwinds -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Font Awesome (CSS Kit)-->
+  <script src="https://kit.fontawesome.com/b3f46e2a2f.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 </head>
 
-<body>
+<body class="bg-blue-200">
   <header>
-    <h1>Welcome </h1>
+    <nav>
+      <div class=" px-4 py-4 flex justify-between items-center bg-white fixed top-0 z-30 w-full px-1 py-3 bg-white gap-5 sm:px-4 shadow-xl">
+
+      <a href="/">
+        <blockquote class="text-6xl p-6 font-semibold italic text-start text-slate-900">
+          Tech
+          <span
+            class="before:block before:absolute before:-inset-1 before:-skew-y-3 before:bg-blue-500 relative inline-block">
+            <span class="relative text-white">Blog</span>
+          </span>
+        </blockquote>
+      </a>
+
+      {{#if loggedIn}}
+                <a class="lg:inline-block lg:ml-auto lg:mr-3 py-2 px-6 bg-gray-50 hover:bg-gray-100 text-sm text-gray-900  font-bold rounded-xl transition duration-200"
+                href="/dashboard">Dashboard</a>
+
+                <button
+                class="no-button lg:inline-block py-2 px-6 bg-pink-500 hover:bg-pink-600 text-sm text-white font-bold rounded-xl transition duration-200"
+                id="logout">Logout</button>
+      {{else}}
+              <a class="lg:inline-block lg:ml-auto lg:mr-3 py-2 px-6 bg-gray-50 hover:bg-gray-100 text-sm text-gray-900 font-bold  rounded-xl transition duration-200"
+               href="/login">Login</a>
+               <a class="no-button lg:inline-block py-2 px-6 bg-blue-500 hover:bg-blue-600 text-sm text-white font-bold rounded-xl transition duration-200"
+               href="/signup">Sign up</a>
+      {{/if}}
+
+    </div>
+    </nav>
   </header>
-  <nav>
-    <a href="/">Home</a>
-  </nav>
+
+
   <main>
-    <aside>
-      <h2>Enjoy !</h2>
-    </aside>
-    <div class="blog">
+    <div>
+      <script src="https://code.jquery.com/jquery-3.6.4.min.js"
+        integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
       {{{body}}}
     </div>
   </main>
+
+  <footer class=" fixed bottom-0 z-30 w-full columns-1 flex items-center justify-center space-x-11 bg-white text-black"
+    id="contact-us">
+
+    <!-- Contact Info -->
+    <section class="flex text-center py-1 gap-10 contact">
+      <p class="py-1 self-center">
+        <!-- Font Awesome icons: FB, GitHub -->
+        <a href="https://github.com/anryl050/tech-blogger.git" target="_blank" rel="noopener noreferrer"><i
+            class="py-1 flex self-center gap-3 fa-solid fa-computer"></i>
+          <p>Tech Blogger</p>
+        </a>
+      </p>
+    </section>
+  </footer>
+
+  <!-- Render script for logged in users only -->
+  {{#if loggedIn}}
+  <script src="./logout.js"></script>
+  {{/if}}
+
 </body>
 
 </html>

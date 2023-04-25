@@ -1,0 +1,91 @@
+{{!-- {{#if posts.length}}
+
+{{#each posts as |post|}}
+{{> post-dashboard post}}
+
+</div>
+{{/each}}
+
+{{else}}
+<p class="center" >The posts you create will appear here.</p>
+
+
+{{/if}}
+<div class="center mb-3">
+    <a href="/dashboard/create/"><button id="create-post" class="btn btn-new">+ New Post</button></a>
+</div> --}}
+
+
+
+
+
+<section id="" class="place-content-center pt-40 pb-40">
+
+<section id="" class="place-content-center pt-40 pb-40">
+    <!-- Poll 1: example -->
+    <div class="flex grid grid-cols-6 gap-20 px-5">
+        {{!-- this is the styling container for the New Poll --}}
+        <section class="col-start-1 col-span-3 justify-center py-5">
+            <form class="new-post-form flex flex-col flex-wrap justify-center py-5 px-10 gap-5 bg-white mx-auto lg:max-w-5xl lg:gap-x-20 border-2 rounded-md">
+                
+                <div class="flex items-center relative p-3 my-3 col-start-1 row-start-1 flex-col-reverse rounded-lg via-black/0 sm:bg-none sm:row-start-2 sm:p-0 lg:row-start-1 gap-5">
+                    <label for="pollText" class="title mt-1 text-lg font-semibold sm:text-slate-900 md:text-2xl">Create Post</label>
+                </div>
+
+                <div class="bg-white">
+                    <div class="mx-auto px-4">
+                          <div class="form-input py-2 px-4 mb-4 bg-white rounded-lg rounded-t-lg border border-gray-200">
+                            <input id="title"  rows="6" class="px-0 w-full text-sm text-gray-900 border-0 focus:ring-0 focus:outline-none" placeholder="Write a comment..." required></input>
+                        </div>
+
+                        <div class="form-input py-2 px-4 mb-4 bg-white rounded-lg rounded-t-lg border border-gray-200">
+                            <textarea id="post_text"  rows="6" class="px-0 w-full text-sm text-gray-900 border-0 focus:ring-0 focus:outline-none" placeholder="Write a comment..." required></textarea>
+                        </div>
+
+                        <a href="/dashboard/create/"><button type="submit" class="inline-flex items-center justify-center py-2.5 px-4 text-sm font-medium text-center text-white bg-blue-500 rounded-lg focus:ring-4 focus:ring-blue-200 hover:bg-blue-800">
+                         Create Post
+                         </button></a>
+
+                    </div>
+                </div>
+            </form>
+        </section>
+
+        {{!-- When the user creates a new poll, the list of polls will show up here --}}
+        {{#if posts.length}}
+        <div class="post-list col-start-4 col-end-7 justify-center bg-white border-2 rounded-md bg-opacity-[.80]">
+            <div class="flex items-center relative p-3 my-3 col-start-1 row-start-1 flex-col-reverse rounded-lg via-black/0 sm:bg-none sm:row-start-2 sm:p-0 lg:row-start-1 gap-5">
+                <h1 class="title mt-1 text-lg font-semibold sm:text-slate-900 md:text-2xl">Your Current Polls:</h1>
+            </div>
+            {{!-- For each poll the following styling format will be applied --}}
+            {{#each posts as |post|}}
+            <section class="py-5 gap-5">
+                <div class="flex flex-col flex-wrap justify-center py-5 px-10 gap-5 bg-white mx-auto lg:max-w-2xl lg:gap-x-20 border-2 rounded-md">
+                    <div class="flex items-center relative p-3 my-3 col-start-1 row-start-1 flex-col-reverse rounded-lg via-black/0 sm:bg-none sm:row-start-2 sm:p-0 lg:row-start-1 gap-5">
+                        <button type="submit" class="inline-flex items-center justify-center py-2.5 px-4 text-sm font-medium text-center text-white bg-blue-500 rounded-lg focus:ring-4 focus:ring-blue-200 hover:bg-blue-800" data-id="{{poll.id}}">
+                            Delete Post
+                        </button>
+                        {{> post-dashboard post}}
+                    </div>
+                </div>
+            </section>
+            {{/each}}
+
+            {{else}}
+
+            <div class="post-list col-start-4 col-end-7 items-center bg-white border-2 rounded-md bg-opacity-[.80]">
+            <div class="flex items-center relative flex-col-reverse rounded-lg via-black/0 sm:bg-none sm:row-start-2 sm:p-0 lg:row-start-1 gap-5">
+                <h1 class="title mt-1 text-lg font-semibold py-36 sm:text-slate-900 md:text-2xl">The posts you create will appear here</h1>
+            </div>
+            </div>
+
+        </div>
+        {{/if}}
+    </div>
+</section>
+
+<script src="./createPost.js"></script>
+<script src="./deletePost.js"></script>
+
+
+</section>
