@@ -16,37 +16,45 @@
 </head>
 
 <body class="bg-blue-200">
-  <header>
-    <nav>
-      <div class=" px-4 py-4 flex justify-between items-center bg-white fixed top-0 z-30 w-full px-1 py-3 bg-white gap-5 sm:px-4 shadow-xl">
+  <nav>
+    <!--Fixed Nav Bar: when user scrolls through the screen, the Nav Bar remains on top of the screen. -->
+    <header class="bg-blue-500">
+      <div
+        class=" px-4 py-4 flex justify-between items-center bg-white fixed top-0 z-30 w-full px-1 py-3 bg-white sm:px-4 shadow-xl">
 
-      <a href="/">
-        <blockquote class="text-6xl p-6 font-semibold italic text-start text-slate-900">
-          Tech
-          <span
-            class="before:block before:absolute before:-inset-1 before:-skew-y-3 before:bg-blue-500 relative inline-block">
-            <span class="relative text-white">Blog</span>
-          </span>
-        </blockquote>
-      </a>
+        {{!-- need a route for home page --}}
+        <a href="/">
+          <blockquote class="text-6xl p-6 font-semibold italic text-start text-slate-900">
+            Tech
+            <span
+              class="before:block before:absolute before:-inset-3 before:-skew-y-3 before:bg-blue-500 relative inline-block">
+              <span class="relative text-white">Blogger</span>
+            </span>
+          </blockquote>
 
-      {{#if loggedIn}}
-                <a class="lg:inline-block lg:ml-auto lg:mr-3 py-2 px-6 bg-gray-50 hover:bg-gray-100 text-sm text-gray-900  font-bold rounded-xl transition duration-200"
-                href="/dashboard">Dashboard</a>
+        </a>
+        {{#if logged_in}}
+        <a class="lg:inline-block lg:ml-auto lg:mr-3 py-2 px-6 bg-gray-50 hover:bg-gray-100 text-sm text-gray-900  font-bold  rounded-xl transition duration-200"
+          href="/">Homepage</a>
+        <a class="lg:inline-block lg:mr-3 py-2 px-6 bg-gray-50 hover:bg-gray-100 text-sm text-gray-900  font-bold  rounded-xl transition duration-200"
+          href="/dashboard">Dashboard</a>
+        <button
+          class="no-button lg:inline-block py-2 px-6 bg-pink-500 hover:bg-pink-600 text-sm text-white font-bold rounded-xl transition duration-200"
+          id="logout">Logout</button>
 
-                <button
-                class="no-button lg:inline-block py-2 px-6 bg-pink-500 hover:bg-pink-600 text-sm text-white font-bold rounded-xl transition duration-200"
-                id="logout">Logout</button>
-      {{else}}
-              <a class="lg:inline-block lg:ml-auto lg:mr-3 py-2 px-6 bg-gray-50 hover:bg-gray-100 text-sm text-gray-900 font-bold  rounded-xl transition duration-200"
-               href="/login">Login</a>
-               <a class="no-button lg:inline-block py-2 px-6 bg-blue-500 hover:bg-blue-600 text-sm text-white font-bold rounded-xl transition duration-200"
-               href="/signup">Sign up</a>
-      {{/if}}
+        {{else}}
+        <a class="lg:inline-block lg:ml-auto lg:mr-3 py-2 px-6 bg-gray-50 hover:bg-gray-100 text-sm text-gray-900  font-bold  rounded-xl transition duration-200"
+          href="/">Homepage</a>
+        <a class="lg:inline-block lg:mr-3 py-2 px-6 bg-gray-50 hover:bg-gray-100 text-sm text-gray-900 font-bold  rounded-xl transition duration-200"
+          href="/login">Login</a>
+        <a class="no-button lg:inline-block py-2 px-6 bg-blue-500 hover:bg-blue-600 text-sm text-white font-bold rounded-xl transition duration-200"
+          href="/signup">Sign up</a>
 
-    </div>
-    </nav>
-  </header>
+        {{/if}}
+
+      </div>
+    </header>
+  </nav>
 
 
   <main>
@@ -73,7 +81,7 @@
   </footer>
 
   <!-- Render script for logged in users only -->
-  {{#if loggedIn}}
+  {{#if logged_in}}
   <script src="./logout.js"></script>
   {{/if}}
 

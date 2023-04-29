@@ -1,0 +1,62 @@
+<section id="" class="place-content-center pt-40 pb-40">
+
+
+    {{#each posts as |post|}}
+
+    <section class=" flex flex-col flex-wrap justify-center  py-5 gap-5">
+
+        <div
+            class="flex flex-col flex-wrap justify-center container mx-auto px-4 mx-5xl py-5 gap-5 bg-white max-w-xlg gap-x-20 border-2  rounded-md">
+
+            <div
+                class=" flex items-center relative p-3 col-start-1 row-start-1 flex-col-reverse rounded-lg  via-black/0 sm:bg-none sm:row-start-2 sm:p-0 lg:row-start-1">
+                <a href="/post/{{id}}" class="mt-1 text-lg font-semibold sm:text-slate-900 md:text-2xl">{{title}}</a>
+            </div>
+            <div
+                class=" flex items-center relative p-3 col-start-1 row-start-1 flex-col-reverse rounded-lg  via-black/0 sm:bg-none sm:row-start-2 sm:p-0 lg:row-start-1">
+                <p class="mt-1 text-sm font-semibold sm:text-slate-900 md:text-lg">{{post_text}}</p>
+            </div>
+            <div
+                class=" flex items-center relative p-3 col-start-1 row-start-1 flex-col-reverse rounded-lg  via-black/0 sm:bg-none sm:row-start-2 sm:p-0 lg:row-start-1">
+                {{!-- will need to replace the user Name with actual user name --}}
+                <p class="mt-1 text-sm font-semibold sm:text-slate-900 md:text-lg ">Posted by {{user.username}} on
+                    {{format_date created_at}} </p>
+            </div>
+            {{post-details}}
+
+            <section class=" flex flex-col flex-wrap justify-center py-5 gap-5 ">
+                <div class="flex justify-between items-center mb-6">
+                    <h2 class="text-lg lg:text-2xl font-bold text-gray-900">Comment Section:</h2>
+                </div>
+                <div
+                    class="flex flex-col flex-wrap justify-center container mx-auto bg-white px-4 mx-5xl py-5 gap-5 max-w-xlg gap-x-20 ">
+
+                    <form class="mb-6 comment-form" id="comment-form">
+                        <div class="py-2 px-4 mb-4 bg-white rounded-lg rounded-t-lg border border-gray-200">
+                            <label for="comment" class="sr-only">Your comment</label>
+                            <input id="comment-{{id}}-text" name="comment-text" rows="6"
+                                class="px-0 w-full text-sm text-gray-900 border-0 focus:ring-0 focus:outline-none"
+                                placeholder="Write a comment..." required></input>
+                        </div>
+                        <button type="button"
+                            class="inline-flex items-center py-2.5 px-4 text-sm font-medium text-center text-white bg-blue-500 rounded-lg focus:ring-4 focus:ring-primary-200 hover:bg-primary-800 comment-btn"
+                            data-id="{{id}}">
+                            Post comment
+                        </button>
+                    </form>
+
+                    {{> comment}}
+
+                </div>
+            </section>
+            {{!--
+    </section> --}}
+    </div>
+</section>
+
+
+{{/each}}
+
+</section>
+
+<script src="./create-comment.js"></script>

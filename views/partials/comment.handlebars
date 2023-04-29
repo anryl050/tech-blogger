@@ -1,0 +1,16 @@
+{{#each comments as |comment|}}
+
+<div
+    class="flex flex-col flex-wrap justify-center container mx-auto px-4 mx-5xl bg-blue-50 py-5 gap-2  max-w-xlg gap-x-20 border-2  rounded-md">
+    <div class="col-start-1 col-span-3 justify-center py-2 px-2 bg-blue-50 border-blue-100  ">
+        <footer class="flex justify-between items-center mb-2 ">
+            <div class="flex items-center">
+                <div class="meta inline-flex items-center mr-3 text-md semi-bold text-gray-900">Comment posted by
+                    {{user.username}} on {{format_date comment.created_at}}</div>
+        </footer>
+        <div class="text flex justify-between items-center mb-2">
+            <p class=" text-gray-500"> {{comment_text}}</p>
+        </div>
+    </div>
+</div>
+{{/each}}

@@ -3,6 +3,7 @@ require('dotenv').config();
 
 let sequelize;
 
+// connects with the JAWS_DB that was added as an extension in the Heroku to store and retrieve the data
 if (process.env.JAWSDB_URL) {
   sequelize = new Sequelize(process.env.JAWSDB_URL);
 } else {
