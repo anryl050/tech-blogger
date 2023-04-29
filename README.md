@@ -78,7 +78,7 @@ At this time no Unit Tests available to test the application functionalities.
 
 
 ## Contribution
-TBD
+N/A
 
 
 ## License
