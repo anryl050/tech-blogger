@@ -50,7 +50,7 @@ The application must:
 
 
 ## Deployed Application
-Application is deployed using Heroku.
+https://about-tech-blog.herokuapp.com/
 
 
 ## Demo Video
@@ -58,6 +58,7 @@ N/A
 
 
 ## Installation/Technical Requirements
+- Application is deployed using Heroku
 - User needs to install [node.js (version 18.15.0 LTS)](https://nodejs.org/en/).
 - To use the application user has to list the following as dependencies in the package.json file:
   - [inquirer (version 8.2.4)](https://www.npmjs.com/package/inquirer/v/8.2.4),
@@ -66,8 +67,10 @@ N/A
   - [MySQL2 (version 3.2.0)](https://www.npmjs.com/package/mysql2),
   - [Sequile (version 6.30.0)](https://www.npmjs.com/package/sequelize).
 
+
 ## Usage
-TBD
+First time user must register to access the application. Once registered, the user can add comments to the posts  of other users and create own posts. 
+User can also access user Dashboard, where user can create new posts or delete previous ones. 
 
 
 ## Tests
