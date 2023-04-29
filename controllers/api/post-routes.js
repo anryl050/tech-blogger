@@ -93,26 +93,6 @@ router.post('/', withAuth, (req, res) => {
     });
 });
 
-
-// router.post('/:id', withAuth, (req, res) => {
-//   Post.findOne({
-//     where: {
-//       id: req.params.id
-//     }
-//   })
-//     .then(postData => {
-//       if (!postData) {
-//         res.status(404).json({ message: 'No post found with this id' });
-//         return;
-//       }
-//       res.json(postData);
-//     })
-//     .catch(err => {
-//       console.log(err);
-//       res.status(500).json(err);
-//     });
-// });
-
 // DELETE route to delete a post
 router.delete('/:id', withAuth, (req, res) => {
   Post.destroy({
