@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const { User, Post, Comment } = require('../../models');
-const withAuth = require('../../../../cucumber-or-pickle/utils/auth');
+const withAuth = require('../../../../tech-blogger/utils/auth');
 
 // GET route to get all users
 router.get('/', (req, res) => {
